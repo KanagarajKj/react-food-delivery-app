@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ setUser }) => {
+const Login = () => {
+  const [userDetail, setUserDetail] = useState([]);
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
+  const[password, setPassword] = useState('')
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!userName || !email) {
+    if (!userName || !email || !password) {
       console.log('Enter the Details');
     } else {
-      setUser({ userName: userName, email: email });
-      navigate('/deals');
+      const userDetails = {
+        userName:userName,
+        email:email,
+        password:password,
+      }
+      setUserDetail([...userDetail, userDetails]);
+      navigate('./deals');
     }
+
+    console.log(userDetail);
   };
 
   return (
     <section className="section">
       <form className="form" onSubmit={handleSubmit}>
-        <div className="form_control">
+        <div className="form-control">
           <label htmlFor="username">UserName: </label>
           <input
             type="text"
@@ -30,7 +39,7 @@ const Login = ({ setUser }) => {
             onChange={(e) => setUserName(e.target.value)}
           />
         </div>
-        <div className="form_control">
+        <div className="form-control">
           <label htmlFor="email">Email: </label>
           <input
             type="email"
@@ -39,8 +48,30 @@ const Login = ({ setUser }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <div className="form-control">
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className='log-btn'>
+          <button type="submit" className="login-btn">
+            Log in
+          </button>
+        </div>
       </form>
+      <div>
+        {userDetail.map((person, index) => {
+          return (
+            <div key={index}>
+              <h4>{person.userName}</h4>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };

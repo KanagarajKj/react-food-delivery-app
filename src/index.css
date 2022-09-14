@@ -1,24 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
 
-
-*,*::after,*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
+:root {
+  --Font-Family: 'Open Sans', sans-serif;
+  --btn-bg-clr: #fb5607;
+  --bg-color: #f6fff8;
+  --text-color: #403d39;
+}
+
+body {
+  font-family: var(--Font-Family);
+  background-color: white;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
 
 /* Navbar */
 
-.navbar .link{
-    width:100%;
-    text-align: center;
-    margin: auto;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  position: fixed;
+  box-shadow: 0 1px 12px 1px var(--btn-bg-clr);
+  z-index: 1;
+  background-color: white;
+}
+
+.nav-icon img {
+  width: 6rem;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.nav-right .link {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.nav-right .link:hover {
+  color: var(--btn-bg-clr);
+}
+
+.order-link {
+  position: relative;
+}
+
+.total-quantity {
+  position: absolute;
+  top: -1.8rem;
+  right: 0;
+  background-color: var(--btn-bg-clr);
+  padding: 0.1rem 0.8rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  font-weight: 500;
+}
+
+/* Home */
+
+.home {
+  width: 100%;
+  margin-top: 8rem;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.form {
+  padding: 1rem;
+  width: 20rem;
+  border-radius: 10px;
+  background-color: #ffe5ec;
+}
+
+.form .form-control label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.form .form-control input {
+  padding: 0.6rem 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.log-btn {
+  width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.login-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: white;
+  background-color: #072ac8;
+}
+
+.login-btn:hover {
+    color: black;
+    outline: 2px solid #072ac8;
+    background-color: transparent;
+}
+
+.home-img img {
+    width: 20rem;
+    border-radius: 20px;
+}
+
+.home-img {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.home-left {
+    margin-top: 5rem;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+}
+
+.login-component {
+    margin-top: 2rem;
+}
+/* Deals */
+
+.deals {
+  margin-top: 6rem;
+  position: absolute;
+}
+
+.deals .title {
+  font-size: 2rem;
+}
+
+/* MenuItems */
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.menu_btn {
+  font-size: 0.9rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #ffe5ec;
+}
+
+/* Products */
+.single-food {
+  width: 50vw;
+  margin: 2rem auto;
+}
+
+.card-one img {
+  width: 15rem;
+  height: auto;
+  border-radius: 2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info h4 {
+  font-size: 1.5rem;
+}
+
+.product-quantity-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.product-quantity-btn p {
+  font-size: 1.2rem;
+}
+
+.quantity-btn {
+  padding: 0.1rem 0.3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 10px;
+  color: var(--btn-bg-clr);
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+}
+
+.add-to-cart {
+  padding: 0.3rem 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--btn-bg-clr);
+  border: none;
+  cursor: pointer;
+}
+
+.more-info {
+  color: #00a8e8;
+  margin-left: 1rem;
+}
+
+/* Orders */
+
+.orders {
+  width: 100%;
+  margin-top: 8rem;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

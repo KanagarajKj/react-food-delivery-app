@@ -1,13 +1,30 @@
-import React from 'react'
-
+import React from 'react';
 import Login from './Login';
 
 const Home = () => {
   return (
-    <div>
-      <Login/>
-    </div>
-  )
-}
+    <section className="home">
+      <div className="home-left">
+        <div className="welcome-content">
+          <h1>Welcome Our Last Minute Deals...</h1>
+        </div>
+        <div className="home-img">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRo6rIWiSmAexxiWJam7XOqNVohGcs8SAzdw&usqp=CAU"
+            alt="Home-img"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdGgm1i--ImsixMtM_7mN5T0Qb2xI00zLeA&usqp=CAU"
+            alt="Home-img"
+          />
+        </div>
+      </div>
 
-export default Home
+      <div className='login-component'>
+        <Login />
+      </div>
+    </section>
+  );
+};
+
+export default Home;
