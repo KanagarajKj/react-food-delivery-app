@@ -26,7 +26,6 @@ const Products = ({ menuItems }) => {
                     id,
                     title,
                     price,
-                    title,
                     quantity,
                   })
                 )

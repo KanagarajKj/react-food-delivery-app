@@ -14,11 +14,11 @@ import { calculateTotals } from './cartFeatures/cartSlice';
 
 const App = () => {
 
-    const { cartItems } = useSelector((state) => state.cart);
+    const { addCart } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(calculateTotals());
-    }, [cartItems]);
+    }, [addCart]);
 
 
   return (

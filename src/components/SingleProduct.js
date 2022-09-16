@@ -7,10 +7,8 @@ import { BsArrowLeft } from 'react-icons/bs';
 const SingleProduct = () => {
   const { productID } = useParams();
 
-  const dispatch = useDispatch();
-
   const singleFood = products.find((product) => product.id === productID);
-  const { id, image, title, desc, price, category,quantity } = singleFood;
+  const { image, title, desc, price, category } = singleFood;
   return (
     <>
       <section className="single-product">

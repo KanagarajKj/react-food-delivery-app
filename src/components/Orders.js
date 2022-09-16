@@ -7,7 +7,7 @@ import { BsPlus, BsDash } from 'react-icons/bs';
 
 const Orders = () => {
   const cartProducts = useSelector((state) => state.cart.addCart);
-  const { totalAmount, totalQuantity, orderQty } = useSelector(
+  const { totalAmount, totalQuantity } = useSelector(
     (state) => state.cart
   );
 
