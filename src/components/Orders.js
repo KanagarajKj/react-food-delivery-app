@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { BsPlus, BsDash } from 'react-icons/bs';
 
-
 const Orders = () => {
   const dispatch = useDispatch();
 
   const { totalAmount, totalQuantity, addCart } = useSelector(
     (state) => state.cart
   );
+
 
   useEffect(() => {
     dispatch(calculateTotals());
@@ -25,7 +25,7 @@ const Orders = () => {
   return (
     <section className="orders">
       <div>
-        {cartProducts.map((product) => {
+        {addCart.map((product) => {
           const { id, image, title, price, quantity } = product;
           return (
             <article key={id} className="card-one">
