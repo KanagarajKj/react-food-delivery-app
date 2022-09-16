@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import products from '../products';
-import { useDispatch } from 'react-redux';
 import { BsArrowLeft } from 'react-icons/bs';
 
 const SingleProduct = () => {

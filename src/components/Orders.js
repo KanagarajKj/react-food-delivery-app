@@ -1,17 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { removeOrders, increase, decrease } from '../cartFeatures/cartSlice';
+import {
+  removeOrders,
+  increase,
+  decrease,
+  calculateTotals,
+} from '../cartFeatures/cartSlice';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { BsPlus, BsDash } from 'react-icons/bs';
 
 const Orders = () => {
-  const cartProducts = useSelector((state) => state.cart.addCart);
-  const { totalAmount, totalQuantity } = useSelector(
-    (state) => state.cart
-  );
-
+  const { addCart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [addCart]);
+  const cartProducts = useSelector((state) => state.cart.addCart);
+  const { totalAmount, totalQuantity } = useSelector((state) => state.cart);
+
   return (
     <section className="orders">
       <div>
@@ -39,8 +46,7 @@ const Orders = () => {
                   className="quantity-btn"
                   onClick={() => {
                     if (quantity === 0) {
-                      return (dispatch(removeOrders(id))
-                      )
+                      return dispatch(removeOrders(id));
                     } else {
                       return dispatch(decrease(id));
                     }
@@ -70,8 +76,12 @@ const Orders = () => {
           <h2>Total Quantity: {totalQuantity} No's</h2>
         </div>
         <div className="purchase">
-          <Link to='/' className="buy-btn">Buy Myself</Link>
-          <Link to='/' className="buy-btn">Home On Delivery</Link>
+          <Link to="/" className="buy-btn">
+            Buy Myself
+          </Link>
+          <Link to="/" className="buy-btn">
+            Home On Delivery
+          </Link>
         </div>
       </div>
     </section>

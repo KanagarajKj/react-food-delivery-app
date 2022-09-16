@@ -7,18 +7,10 @@ import Orders from './components/Orders';
 import Deals from './components/Deals';
 import Login from './components/Login';
 import SingleProduct from './components/SingleProduct';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { calculateTotals } from './cartFeatures/cartSlice';
 
 
 const App = () => {
 
-    const { addCart } = useSelector((state) => state.cart);
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(calculateTotals());
-    }, [addCart]);
 
 
   return (
