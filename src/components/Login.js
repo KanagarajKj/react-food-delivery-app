@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
-  const [userDetail, setUserDetail] = useState([]);
+  const [userDetail, setUserDetail] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const[password, setPassword] = useState('')
@@ -30,12 +31,16 @@ const Login = () => {
   return (
     <section className="section">
       <form className="form" onSubmit={handleSubmit}>
+        <div className="login-title">
+          <h2>Log in</h2>
+        </div>
         <div className="form-control">
           <label htmlFor="username">UserName: </label>
           <input
             type="text"
             id="username"
             value={userName}
+            placeholder = 'Enter Your Name'
             onChange={(e) => setUserName(e.target.value)}
           />
         </div>
@@ -45,6 +50,7 @@ const Login = () => {
             type="email"
             id="email"
             value={email}
+            placeholder= 'Enter Your Email'
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -53,25 +59,22 @@ const Login = () => {
           <input
             type="password"
             id="password"
+            placeholder='Enter Your Password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='log-btn'>
+        <div className="log-btn">
           <button type="submit" className="login-btn">
             Log in
           </button>
         </div>
       </form>
-      <div>
-        {userDetail.map((person, index) => {
-          return (
-            <div key={index}>
-              <h4>{person.userName}</h4>
-            </div>
-          );
-        })}
-      </div>
+      {userName && (
+        <div className="welcome-note">
+          <h1>Welcome {userName}. . . !</h1>
+        </div>
+      )}
     </section>
   );
 };

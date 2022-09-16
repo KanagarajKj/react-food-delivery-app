@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import products from '../products';
-import { addItem} from '../cartFeatures/cartSlice';
 import { useDispatch } from 'react-redux';
+import { BsArrowLeft } from 'react-icons/bs';
 
 const SingleProduct = () => {
   const { productID } = useParams();
@@ -10,22 +10,27 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
 
   const singleFood = products.find((product) => product.id === productID);
-  const { id, image, title, desc, price } = singleFood;
+  const { id, image, title, desc, price, category,quantity } = singleFood;
   return (
     <>
-      <section>
+      <section className="single-product">
         <div className="single-img">
           <img src={image} alt={title} />
         </div>
-        <div className='single-prt-price'>
-          <h4>{title}</h4>
-          <p>₹ {price}</p>
-          <p>{desc}</p>
-          <button className="cart" onClick={() => dispatch(addItem(id))}>
-            Add to Cart
-          </button>
+        <div className="single-prt-price">
+          <h4 className="single-product-title">{title}</h4>
+          <p className="single-product-price">₹ {price}</p>
+          <span className="category">
+            Category : <h4>{category}</h4>
+          </span>
+          <p className="desc">{desc}</p>
         </div>
-        <Link to="/deals">Back to All Foods</Link>
+        <Link to="/deals" className="back-to">
+          <span>
+            <BsArrowLeft />
+          </span>{' '}
+          Back to All Foods
+        </Link>
       </section>
     </>
   );

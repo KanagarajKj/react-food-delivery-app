@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MenuItems from './MenuItems';
-import Products from './Products';
 import { useSelector } from 'react-redux';
+import Products from './Products';
 
 const Deals = () => {
   const { productsList } = useSelector((state) => state.cart);
@@ -31,9 +31,7 @@ const Deals = () => {
           <h4>Discover the best food & drinks in</h4>
         </div>
         <div className="product">
-          {productsList.map((product) => {
-            return <Products key={product.id} {...product} />;
-          })}
+          <Products menuItems={menuItems} />
         </div>
       </section>
     </div>

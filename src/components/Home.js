@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './Login';
 
 const Home = () => {
+  
   return (
     <section className="home">
       <div className="home-left">
@@ -18,9 +19,15 @@ const Home = () => {
             alt="Home-img"
           />
         </div>
+        <div className='hot-deals'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAi4-8Ju_RMnjwT-gSLixoejnbspbESPbCHg&usqp=CAU"
+            alt="icon "
+          />
+        </div>
       </div>
 
-      <div className='login-component'>
+      <div className="login-component">
         <Login />
       </div>
     </section>

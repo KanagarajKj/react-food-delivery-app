@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { removeCart } from '../cartFeatures/cartSlice';
+import { removeOrders, increase, decrease } from '../cartFeatures/cartSlice';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { BsPlus, BsDash } from 'react-icons/bs';
 
 const Orders = () => {
   const cartProducts = useSelector((state) => state.cart.addCart);
@@ -24,20 +25,51 @@ const Orders = () => {
                 <h3>Price ₹ {price}-/</h3>
               </div>
 
-              <div className="total-num-orders">Quantity:{quantity}</div>
+              <div className="product-quantity-btn">
+                <button
+                  className="quantity-btn"
+                  onClick={() => dispatch(increase(id))}
+                >
+                  <BsPlus />
+                </button>
+                <p>{quantity}</p>
+                <button
+                  className="quantity-btn"
+                  onClick={() => {
+                    if (quantity > 0) {
+                      return dispatch(removeOrders(id));
+                    } else {
+                      return dispatch(decrease(id));
+                    }
+                  }}
+                >
+                  <BsDash />
+                </button>
+              </div>
               <Link className="more-info" to={'/deals'}>
                 Back...
               </Link>
-              <button onClick={() => dispatch(removeCart(id))}>Remove</button>
+              <button
+                className="remove-btn"
+                onClick={() => dispatch(removeOrders(id))}
+              >
+                Remove
+              </button>
             </article>
           );
         })}
       </div>
       <div className="totals">
-        <h4>Total Amount: ₹{totalAmount}</h4>
-        <span>
-          <span>Total Quantity: {totalQuantity}</span> <span>No's</span>{' '}
-        </span>
+        <div>
+          <h2>Total Amount: ₹ {totalAmount}.00-/</h2>
+        </div>
+        <div>
+          <h2>Total Quantity: {totalQuantity} No's</h2>
+        </div>
+        <div className="purchase">
+          <Link to='/' className="buy-btn">Buy Myself</Link>
+          <Link to='/' className="buy-btn">Home On Delivery</Link>
+        </div>
       </div>
     </section>
   );

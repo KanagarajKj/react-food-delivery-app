@@ -5,15 +5,21 @@ const MenuItems = ({ menuItems, menuFilter }) => {
   menuitems = ['All', ...new Set(menuitems)];
   return (
     <div className="btn-container">
-      {menuitems.map((category, id) => {
+      {menuitems.map((category, index) => {
         return (
-          <button
-            className="menu_btn"
-            key={id}
-            onClick={() => menuFilter(category)}
-          >
-            {category}
-          </button>
+          <>
+            <button
+              className="menu_btn"
+              key={index}
+              onClick={() => menuFilter(category)}
+            >
+              {category}
+            </button>
+
+            {/* <div>
+              <Products menuItems={menuItems} />
+            </div> */}
+          </>
         );
       })}
     </div>

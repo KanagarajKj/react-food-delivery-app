@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const { totalQuantity } = useSelector((state) => state.cart);
+  const { orderQty } = useSelector((state) => state.cart);
   return (
     <nav className="navbar">
       <div className="nav-icon">
@@ -24,7 +24,7 @@ const Navbar = () => {
             Orders
           </Link>
           <div className="total-quantity">
-            <p>{totalQuantity}</p>
+            <p>{orderQty}</p>
           </div>
         </div>
       </div>
