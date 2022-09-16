@@ -33,6 +33,11 @@ const cartSlice = createSlice({
       }else{
         cartItem.quantity--;
       }
+
+      state.totalAmount = state.addCart.reduce(
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
+      );
     },
     removeOrders: (state, action) => {
       const existingItem = state.addCart.find(
@@ -52,17 +57,6 @@ const cartSlice = createSlice({
         0
       );
     },
-    calculateTotals: (state) => {
-      let quantity = 0;
-      let total = 0;
-      state.addCart.forEach((item) => {
-        quantity += item.quantity;
-        total += item.quantity * item.price;
-      });
-      state.totalQuantity = quantity;
-      state.totalAmount = total;
-    },
-
     addItem: (state, action) => {
       const newItem = action.payload;
       const existingItem = state.productsList.find(

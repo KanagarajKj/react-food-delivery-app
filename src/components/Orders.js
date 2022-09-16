@@ -1,10 +1,9 @@
-import React,{useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import {
   removeOrders,
   increase,
   decrease,
-  calculateTotals,
 } from '../cartFeatures/cartSlice';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -17,16 +16,10 @@ const Orders = () => {
     (state) => state.cart
   );
 
-const [cart, setCart] = useState(addCart)
-
-  useEffect(() => {
-    dispatch(calculateTotals());
-  }, [cart]);
-
   return (
     <section className="orders">
       <div>
-        {cart.map((product) => {
+        {addCart.map((product) => {
           const { id, image, title, price, quantity } = product;
           return (
             <article key={id} className="card-one">
