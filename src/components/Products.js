@@ -1,8 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {useDispatch} from 'react-redux';
-import { increase, decrease, addItem } from '../cartFeatures/cartSlice';
-import { BsPlus, BsDash } from 'react-icons/bs';
+import { addItem } from '../cartFeatures/cartSlice';
 
 const Products = ({ menuItems }) => {
   const dispatch = useDispatch();
@@ -19,27 +18,6 @@ const Products = ({ menuItems }) => {
               <h4>{title}</h4>
               <h3>Price ₹ {price}-/</h3>
             </div>
-            {/* <div className="product-quantity-btn">
-              <button
-                className="quantity-btn"
-                onClick={() => dispatch(increase(id))}
-              >
-                <BsPlus />
-              </button>
-              <p>{quantity}</p>
-              <button
-                className="quantity-btn"
-                onClick={() => {
-                  if (quantity === 0) {
-                    return (quantity = 0);
-                  } else {
-                    return dispatch(decrease(id));
-                  }
-                }}
-              >
-                <BsDash />
-              </button>
-            </div> */}
             <button
               className="add-to-cart"
               onClick={() =>

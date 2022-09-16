@@ -7,7 +7,9 @@ import { BsPlus, BsDash } from 'react-icons/bs';
 
 const Orders = () => {
   const cartProducts = useSelector((state) => state.cart.addCart);
-  const { totalAmount, totalQuantity } = useSelector((state) => state.cart);
+  const { totalAmount, totalQuantity, orderQty } = useSelector(
+    (state) => state.cart
+  );
 
   const dispatch = useDispatch();
   return (
@@ -36,8 +38,9 @@ const Orders = () => {
                 <button
                   className="quantity-btn"
                   onClick={() => {
-                    if (quantity > 0) {
-                      return dispatch(removeOrders(id));
+                    if (quantity === 0) {
+                      return (dispatch(removeOrders(id))
+                      )
                     } else {
                       return dispatch(decrease(id));
                     }
