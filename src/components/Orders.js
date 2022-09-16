@@ -1,4 +1,4 @@
-import React,{useEffect } from 'react';
+import React,{useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   removeOrders,
@@ -17,15 +17,16 @@ const Orders = () => {
     (state) => state.cart
   );
 
+const [cart, setCart] = useState(addCart)
 
   useEffect(() => {
     dispatch(calculateTotals());
-  }, [addCart]);
+  }, [cart]);
 
   return (
     <section className="orders">
       <div>
-        {addCart.map((product) => {
+        {cart.map((product) => {
           const { id, image, title, price, quantity } = product;
           return (
             <article key={id} className="card-one">
