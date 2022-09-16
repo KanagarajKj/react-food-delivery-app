@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
   removeOrders,
@@ -10,10 +10,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { BsPlus, BsDash } from 'react-icons/bs';
 
+
 const Orders = () => {
   const dispatch = useDispatch();
 
-  const cartProducts = useSelector((state) => state.cart.addCart);
   const { totalAmount, totalQuantity, addCart } = useSelector(
     (state) => state.cart
   );

@@ -82,29 +82,6 @@ const cartSlice = createSlice({
       } else {
          alert('already Added');
       }
-
-
-      // state.totalQuantity++;
-      // if (!existingItem) {
-      //   state.productsList.push({
-      //     id: newItem.id,
-      //     title: newItem.title,
-      //     image: newItem.image,
-      //     // price: newItem.price,
-      //     quantity: 1,
-      //     // totalAmount: newItem.price,
-      //   });
-      // } else {
-      //   existingItem.quantity++;
-      //   // existingItem.totalPrice =
-      //   //   Number(existingItem.totalAmount) + Number(newItem.price);
-      // }
-
-      // setItemFunc(
-      //   state.cartItems.map((item) => item),
-      //   state.totalAmount,
-      //   state.totalQuantity
-      // );
     },
   },
 });
