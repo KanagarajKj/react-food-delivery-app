@@ -11,13 +11,16 @@ import { useDispatch } from 'react-redux';
 import { BsPlus, BsDash } from 'react-icons/bs';
 
 const Orders = () => {
-  const { addCart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const cartProducts = useSelector((state) => state.cart.addCart);
+  const { totalAmount, totalQuantity, addCart } = useSelector(
+    (state) => state.cart
+  );
+
   useEffect(() => {
     dispatch(calculateTotals());
   }, [addCart]);
-  const cartProducts = useSelector((state) => state.cart.addCart);
-  const { totalAmount, totalQuantity } = useSelector((state) => state.cart);
 
   return (
     <section className="orders">
