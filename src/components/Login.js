@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const [userDetail, setUserDetail] = useState('');
+  const [userDetail, setUserDetail] = useState([]);
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const[password, setPassword] = useState('')
@@ -25,7 +25,6 @@ const Login = () => {
       navigate('./deals');
     }
 
-    console.log(userDetail);
   };
 
   return (
