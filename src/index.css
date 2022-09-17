@@ -459,3 +459,9 @@ border: 2px solid white;
   gap: 0.2rem;
   margin-bottom: 1rem;
 }
+
+.new-order-btn{
+  margin-left: 2rem;
+  color: #00a8e8;
+  font-size: 2rem;
+}

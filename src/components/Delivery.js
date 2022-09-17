@@ -116,8 +116,10 @@ const Delivery = () => {
             Go to Orders
           </Link>
         </div>
-        <div className="new-order-btn">
-          <Link to = '/' onClick={() => dispatch(buyMySelf)}>New Order</Link>
+        <div>
+          <Link to="/" className="new-order-btn"
+            onClick={() => dispatch(buyMySelf)}>New Order
+          </Link>
         </div>
       </div>
     </section>
