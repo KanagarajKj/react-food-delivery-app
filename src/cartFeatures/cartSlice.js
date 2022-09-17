@@ -77,6 +77,11 @@ const cartSlice = createSlice({
          alert('already Added');
       }
     },
+    buyMySelf:(state)=>{
+      state.totalQuantity = 0;
+      state.totalAmount = 0;
+      state.orderQty = 0;
+    },
   },
 });
 
@@ -87,6 +92,7 @@ export const {
   calculateTotals,
   addItem,
   removeOrders,
+  buyMySelf,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

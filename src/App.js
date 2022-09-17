@@ -7,6 +7,7 @@ import Orders from './components/Orders';
 import Deals from './components/Deals';
 import Login from './components/Login';
 import SingleProduct from './components/SingleProduct';
+import Delivery from './components/Delivery';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/products/:productID" element={<SingleProduct />} />
+          <Route path='/delivery' element={<Delivery/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

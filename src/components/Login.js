@@ -14,17 +14,17 @@ const Login = () => {
     e.preventDefault();
 
     if (!userName || !email || !password) {
-      console.log('Enter the Details');
+      alert('Enter the Details');
     } else {
-      const userDetails = {
+      const oneUser = {
         userName:userName,
         email:email,
         password:password,
       }
-      setUserDetail([...userDetail, userDetails]);
+      setUserDetail([oneUser]);
       navigate('./deals');
     }
-
+console.log(userDetail)
   };
 
   return (

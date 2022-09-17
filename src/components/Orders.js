@@ -12,7 +12,7 @@ import { BsPlus, BsDash } from 'react-icons/bs';
 const Orders = () => {
   const dispatch = useDispatch();
 
-  const { totalAmount, totalQuantity, addCart } = useSelector(
+  const { totalAmount, totalQuantity, addCart, buyMySelf } = useSelector(
     (state) => state.cart
   );
 
@@ -73,10 +73,10 @@ const Orders = () => {
           <h2>Total Quantity: {totalQuantity} No's</h2>
         </div>
         <div className="purchase">
-          <Link to="/" className="buy-btn">
+          <Link to="/" className="buy-btn" onClick={() => dispatch(buyMySelf)}>
             Buy Myself
           </Link>
-          <Link to="/" className="buy-btn">
+          <Link to="/delivery" className="buy-btn">
             Home On Delivery
           </Link>
         </div>
